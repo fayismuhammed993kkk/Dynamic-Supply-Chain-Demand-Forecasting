@@ -84,34 +84,36 @@ col3, col4 = st.columns(2)
 
 with col3:
     if promo2 == 1:
-      promo2_since_week = st.number_input(
-        "Promo2 Active Since Week",
-        min_value=1,
-        max_value=52,
-        value=1
-    )
-else:
-    promo2_since_week = 0
-    if promo2 == 1:
-      promo2_since_year = st.number_input(
-        "Promo2 Active Since Year",
-        min_value=2008,
-        max_value=2025,
-        value=2013
-    )
-else:
-    promo2_since_year = 0
-    
-    
-    # Clean, human-readable holiday mapping to replace abstract letters
+        promo2_since_week = st.number_input(
+            "Promo2 Active Since Week",
+            min_value=1,
+            max_value=52,
+            value=1
+        )
+
+        promo2_since_year = st.number_input(
+            "Promo2 Active Since Year",
+            min_value=2008,
+            max_value=2025,
+            value=2013
+        )
+    else:
+        promo2_since_week = 0
+        promo2_since_year = 0
+
+    # Clean, human-readable holiday mapping
     holiday_mapping = {
         '0': 'Regular Day (No Holiday)',
         'a': 'Public Holiday',
         'b': 'Easter Holiday',
         'c': 'Christmas Season'
     }
-    state_holiday = st.selectbox("State Holiday Context", options=list(holiday_mapping.keys()), format_func=lambda x: holiday_mapping[x])
 
+    state_holiday = st.selectbox(
+        "State Holiday Context",
+        options=list(holiday_mapping.keys()),
+        format_func=lambda x: holiday_mapping[x]
+    )
 with col4:
     promo_interval = st.selectbox("Promo Interval Cycle", ["None", "Jan,Apr,Jul,Oct", "Feb,May,Aug,Nov", "Mar,Jun,Sept,Dec"])
     school_holiday = st.selectbox("School Holiday?", options=[0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
