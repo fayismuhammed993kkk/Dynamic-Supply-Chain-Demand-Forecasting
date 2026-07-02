@@ -1,5 +1,15 @@
 # Dynamic Supply Chain Demand Forecasting using Machine Learning
 
+## 🚀 Live Demo
+
+🌐 **Streamlit App:**  
+https://dynamic-demand-forecasting.streamlit.app/
+
+💻 **GitHub Repository:**  
+https://github.com/fayismuhammed993kkk/Dynamic-Supply-Chain-Demand-Forecasting
+
+---
+
 ## Project Overview
 
 This project predicts daily retail store sales using Machine Learning. The objective is to help retailers optimize inventory planning, staffing, and promotional strategies by forecasting future sales.
