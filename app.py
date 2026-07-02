@@ -1,7 +1,6 @@
 import streamlit as st
-import pandas as pd
 import joblib
-
+import pandas as pd
 # -----------------------------
 # Page Configuration
 # -----------------------------
@@ -66,16 +65,43 @@ with col2:
     promo2 = st.selectbox("Continuous Promo2 Active?", options=[0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
     
     competition_distance = st.number_input("Competition Distance (Meters)", min_value=0, value=1000)
-    competition_open_month = st.number_input("Competition Open Since Month", min_value=0, max_value=12, value=0)
-    competition_open_year = st.number_input("Competition Open Since Year", min_value=0, value=0)
+    competition_open_month = st.number_input(
+    "Competition Open Since Month",
+    min_value=1,
+    max_value=12,
+    value=1
+)
+    competition_open_year = st.number_input(
+    "Competition Open Since Year",
+    min_value=1900,
+    max_value=2025,
+    value=2010
+)
 
 st.subheader("📅 Promotion & Calendar Context")
 
 col3, col4 = st.columns(2)
 
 with col3:
-    promo2_since_week = st.number_input("Promo2 Active Since Week", min_value=0, value=0)
-    promo2_since_year = st.number_input("Promo2 Active Since Year", min_value=0, value=0)
+    if promo2 == 1:
+    promo2_since_week = st.number_input(
+        "Promo2 Active Since Week",
+        min_value=1,
+        max_value=52,
+        value=1
+    )
+else:
+    promo2_since_week = 0
+    if promo2 == 1:
+    promo2_since_year = st.number_input(
+        "Promo2 Active Since Year",
+        min_value=2008,
+        max_value=2025,
+        value=2013
+    )
+else:
+    promo2_since_year = 0
+    
     
     # Clean, human-readable holiday mapping to replace abstract letters
     holiday_mapping = {
