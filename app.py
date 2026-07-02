@@ -84,7 +84,7 @@ col3, col4 = st.columns(2)
 
 with col3:
     if promo2 == 1:
-    promo2_since_week = st.number_input(
+      promo2_since_week = st.number_input(
         "Promo2 Active Since Week",
         min_value=1,
         max_value=52,
@@ -93,7 +93,7 @@ with col3:
 else:
     promo2_since_week = 0
     if promo2 == 1:
-    promo2_since_year = st.number_input(
+      promo2_since_year = st.number_input(
         "Promo2 Active Since Year",
         min_value=2008,
         max_value=2025,
