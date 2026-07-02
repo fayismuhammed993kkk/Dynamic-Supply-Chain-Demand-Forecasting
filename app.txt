@@ -1,0 +1,185 @@
+import streamlit as st
+import pandas as pd
+import joblib
+
+# -----------------------------
+# Page Configuration
+# -----------------------------
+st.set_page_config(
+    page_title="Rossmann Sales Predictor",
+    page_icon="📈",
+    layout="centered"
+)
+
+st.title("📈 Rossmann Store Sales Forecasting")
+st.write(
+    "Enter the store details below to predict the daily sales using the trained XGBoost model."
+)
+
+# -----------------------------
+# Load Model
+# -----------------------------
+@st.cache_resource
+def load_model():
+    return joblib.load("xgboost_sales_model.pkl")
+
+model = load_model()
+
+# -----------------------------
+# User Inputs
+# -----------------------------
+
+st.subheader("🏬 Store Information")
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    store_id = st.number_input(
+        "Store ID",
+        min_value=1,
+        max_value=1115,
+        value=1
+    )
+
+    store_type = st.selectbox(
+        "Store Type",
+        ['a', 'b', 'c', 'd']
+    )
+
+    assortment = st.selectbox(
+        "Assortment",
+        ['a', 'b', 'c']
+    )
+
+    day_of_week = st.selectbox(
+        "Day of Week",
+        [1,2,3,4,5,6,7]
+    )
+
+    state_holiday = st.selectbox(
+        "State Holiday",
+        ['0','a','b','c']
+    )
+
+    school_holiday = st.selectbox(
+        "School Holiday",
+        [0,1]
+    )
+
+with col2:
+
+    promo = st.selectbox(
+        "Promo",
+        [0,1]
+    )
+
+    promo2 = st.selectbox(
+        "Promo2",
+        [0,1]
+    )
+
+    competition_distance = st.number_input(
+        "Competition Distance",
+        min_value=0,
+        value=1000
+    )
+
+    competition_open_month = st.number_input(
+        "Competition Open Since Month",
+        min_value=0,
+        max_value=12,
+        value=0
+    )
+
+    competition_open_year = st.number_input(
+        "Competition Open Since Year",
+        min_value=0,
+        value=0
+    )
+
+st.subheader("📅 Promotion Information")
+
+col3, col4 = st.columns(2)
+
+with col3:
+
+    promo2_since_week = st.number_input(
+        "Promo2 Since Week",
+        min_value=0,
+        value=0
+    )
+
+    promo2_since_year = st.number_input(
+        "Promo2 Since Year",
+        min_value=0,
+        value=0
+    )
+
+with col4:
+
+    promo_interval = st.selectbox(
+        "Promo Interval",
+        [
+            "None",
+            "Jan,Apr,Jul,Oct",
+            "Feb,May,Aug,Nov",
+            "Mar,Jun,Sept,Dec"
+        ]
+    )
+
+    selected_date = st.date_input("Select Date")
+
+# -----------------------------
+# Extract Date Features
+# -----------------------------
+
+date = pd.to_datetime(selected_date)
+
+year = date.year
+month = date.month
+day = date.day
+weekofyear = int(date.isocalendar().week)
+is_weekend = 1 if date.weekday() >= 5 else 0
+
+# -----------------------------
+# Prediction
+# -----------------------------
+
+if st.button("🚀 Predict Sales"):
+
+    input_data = pd.DataFrame({
+
+        "Store":[store_id],
+        "DayOfWeek":[day_of_week],
+        "Promo":[promo],
+        "Open": [1],
+        "StateHoliday":[state_holiday],
+        "SchoolHoliday":[school_holiday],
+        "StoreType":[store_type],
+        "Assortment":[assortment],
+        "CompetitionDistance":[competition_distance],
+        "CompetitionOpenSinceMonth":[competition_open_month],
+        "CompetitionOpenSinceYear":[competition_open_year],
+        "Promo2":[promo2],
+        "Promo2SinceWeek":[promo2_since_week],
+        "Promo2SinceYear":[promo2_since_year],
+        "PromoInterval":[promo_interval],
+        "Year":[year],
+        "Month":[month],
+        "Day":[day],
+        "WeekOfYear":[weekofyear],
+        "IsWeekend":[is_weekend]
+
+    })
+
+    prediction = model.predict(input_data)[0]
+
+    prediction = max(0, prediction)
+
+    st.success("Prediction generated successfully!")
+
+    st.metric(
+        label="📈 Predicted Daily Sales",
+        value=f"{prediction:,.0f}"
+    )
