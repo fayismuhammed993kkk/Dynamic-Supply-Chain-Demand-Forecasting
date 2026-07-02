@@ -12,7 +12,7 @@ This project predicts daily retail store sales using Machine Learning. The objec
 - Source: Kaggle
 - Final Dataset Size:
   - Rows: 844,338
-  - Features: 19
+  - Features: 18
   - Target Variable: Sales
 
 ---
