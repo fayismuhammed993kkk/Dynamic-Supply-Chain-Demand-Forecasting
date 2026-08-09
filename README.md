@@ -104,6 +104,5 @@ The application allows users to enter store details and instantly predict daily 
 
 **Muhammed Fayis**
 
-MSc Statistics
 
 Machine Learning Project
