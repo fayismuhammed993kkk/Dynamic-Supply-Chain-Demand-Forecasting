@@ -5,16 +5,10 @@
 🌐 **Streamlit App:**  
 https://dynamic-demand-forecasting.streamlit.app/
 
-💻 **GitHub Repository:**  
-https://github.com/fayismuhammed993kkk/Dynamic-Supply-Chain-Demand-Forecasting
-
----
-
 ## Project Overview
 
 This project predicts daily retail store sales using Machine Learning. The objective is to help retailers optimize inventory planning, staffing, and promotional strategies by forecasting future sales.
 
----
 
 ## Dataset
 
@@ -25,7 +19,6 @@ This project predicts daily retail store sales using Machine Learning. The objec
   - Features: 18
   - Target Variable: Sales
 
----
 
 ## Technologies Used
 
@@ -39,7 +32,6 @@ This project predicts daily retail store sales using Machine Learning. The objec
 - Seaborn
 - Joblib
 
----
 
 ## Machine Learning Workflow
 
@@ -72,7 +64,6 @@ This project predicts daily retail store sales using Machine Learning. The objec
 
 XGBoost achieved the best performance and was selected as the final model.
 
----
 
 ## Features Used
 
@@ -92,13 +83,11 @@ XGBoost achieved the best performance and was selected as the final model.
 - WeekOfYear
 - IsWeekend
 
----
 
 ## Streamlit Application
 
 The application allows users to enter store details and instantly predict daily sales using the trained XGBoost model.
 
----
 
 ## Author
 
