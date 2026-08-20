@@ -1,5 +1,7 @@
 # 📈 Dynamic Supply Chain Demand Forecasting using Machine Learning
 
+`Python` `Xgboost` `scikit-learn` `Streamlit` `demand-forecasting` `supply-chain` `Machine Learning`
+
 A machine learning-based retail sales forecasting system that predicts daily store sales using historical sales data, store characteristics, promotions, holidays, competition information, and time-based features.
 
 ## 🚀 Live Demo
