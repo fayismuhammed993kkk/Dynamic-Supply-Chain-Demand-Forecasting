@@ -197,13 +197,20 @@ The trained model is saved using **Joblib** and loaded by the Streamlit applicat
 Dynamic-Supply-Chain-Demand-Forecasting/
 │
 ├── app.py
-├── Retail_Sales_Forecasting.ipynb
-├── sales.csv
-├── store.csv
-├── xgboost_sales_model.pkl
-├── requirements.txt
 ├── README.md
-└── .gitignore
+├── LICENSE
+├── requirements.txt
+├── .gitignore
+│
+├── data/
+│   ├── sales.csv
+│   └── store.csv
+│
+├── models/
+│   └── xgboost_sales_model.pkl
+│
+├── notebooks/
+│   └── Retail_Sales_Forecasting.ipynb
 ```
 
 ---
