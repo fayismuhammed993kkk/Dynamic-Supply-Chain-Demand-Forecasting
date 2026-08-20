@@ -210,7 +210,7 @@ Dynamic-Supply-Chain-Demand-Forecasting/
 │   └── xgboost_sales_model.pkl
 │
 ├── notebooks/
-│   └── Retail_Sales_Forecasting.ipynb
+  └── Retail_Sales_Forecasting.ipynb
 ```
 
 ---
