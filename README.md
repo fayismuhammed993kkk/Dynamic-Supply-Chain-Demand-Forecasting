@@ -186,10 +186,6 @@ The application allows users to provide store-related inputs and receive an esti
 
 The trained model is saved using **Joblib** and loaded by the Streamlit application during prediction.
 
-### Live Application
-
-🌐 **https://dynamic-demand-forecasting.streamlit.app/**
-
 ---
 
 ## 📁 Project Structure
