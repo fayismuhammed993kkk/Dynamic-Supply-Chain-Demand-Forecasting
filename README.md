@@ -5,7 +5,7 @@
 A machine learning-based retail sales forecasting system that predicts daily store sales using historical sales data, store characteristics, promotions, holidays, competition information, and time-based features.
 
 ## 🚀 Live Demo
-https://github.com/user-attachments/assets/3cc0dbac-864d-45ad-9272-6640f1694dec
+**[Watch the Demand Forecasting App Demo]https://github.com/user-attachments/assets/3cc0dbac-864d-45ad-9272-6640f1694dec**
 
 🌐 **Streamlit App:**
 https://dynamic-demand-forecasting.streamlit.app/
