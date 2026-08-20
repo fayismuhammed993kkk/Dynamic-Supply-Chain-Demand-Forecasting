@@ -224,4 +224,4 @@ Accurate demand predictions can help businesses reduce the risk of **overstockin
 
 **Muhammed Fayis**
 
-Machine Learning / Data Science Project
+*Data Science Machine Learning* 
